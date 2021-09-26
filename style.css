@@ -76,7 +76,6 @@
   opacity: 0.6;
   height: 100%;
   width: 90%;
-  /* z-index: 2; */
 }
 .ball::before {
   width: 50%;
@@ -98,7 +97,6 @@
   -o-transform: translateX(-10px) translateY(-13px) skewX(-20deg);
   transform: translateX(-1px) translateY(-1px) skewX(-20deg);
   filter: blur(2px);
-  /* z-index: 2; */
 }
 
 .display-numbers-h1 {
