@@ -86,7 +86,6 @@ const compareNumbers = () => {
 const display = () => {
   displaydText = "";
   loterryArr.forEach((number) => (displaydText += `${number}, `));
-  lotteryBtn.classList.remove("visible");
   const txtArr = displaydText.split(",");
   txtArr.pop();
   displaydText = txtArr.join(",");
@@ -118,6 +117,12 @@ const clearData = () => {
   balls.forEach((ball) => ball.classList.remove("clicked-ball"));
   popUp.classList.add("visible");
 };
+
+const resetResult = () => {
+  clearData();
+  lotteryBtn.classList.remove("visible");
+};
+
 createBalls();
 chooseYourBalls();
 
@@ -137,4 +142,4 @@ const startLottery = () => {
 };
 
 lotteryBtn.addEventListener("click", startLottery);
-resetBtn.addEventListener("click", clearData);
+resetBtn.addEventListener("click", resetResult);
