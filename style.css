@@ -9,7 +9,7 @@
   position: relative;
   top: 0;
   left: 0;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   background: rgba(95, 95, 90, 0.7);
 }
@@ -28,7 +28,7 @@
 
 .main-header {
   margin: 20px auto;
-  width: 500px;
+  max-width: 500px;
   text-align: center;
   font-size: 35px;
   background: rgba(245, 245, 167, 0.3);
@@ -41,8 +41,8 @@
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  height: 500px;
-  width: 500px;
+  min-height: 400px;
+  max-width: 500px;
 }
 .ball {
   position: relative;
@@ -50,14 +50,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
   background: radial-gradient(
     circle at 50% 120%,
     rgb(253, 246, 191),
     rgb(255, 215, 0) 80%,
     rgb(255, 205, 0) 100%
+  );
+  cursor: pointer;
+}
+.clicked-ball {
+  background: radial-gradient(
+    circle at 50% 120%,
+    rgb(250, 248, 235),
+    rgb(153, 151, 138) 80%,
+    rgb(78, 76, 66) 100%
   );
 }
 .ball:before {
@@ -94,7 +103,7 @@
 }
 .display-numbers-h1 {
   margin: 0 auto;
-  width: 500px;
+  max-width: 500px;
   text-align: center;
   background: rgba(245, 245, 167, 0.3);
   border: 1px solid #666;
@@ -113,7 +122,8 @@
 .btn-cointainer {
   width: 100vw;
 }
-.lottery-btn {
+.lottery-btn,
+.reset-btn {
   display: block;
   margin: 10px auto;
   padding: 7px 12px;
@@ -127,6 +137,38 @@
 .visible {
   display: none;
 }
-.lottery-btn:hover {
+.lottery-btn:hover,
+.reset-btn:hover {
   transform: scale(1.05);
+}
+
+.choosen-numbers p {
+  margin: 10px auto;
+  max-width: 500px;
+  min-height: 55px;
+  text-align: center;
+  background: rgba(245, 245, 167, 0.3);
+  border: 1px solid #666;
+  color: rgb(35, 81, 220);
+  text-shadow: 2px 2px 2px #ddd;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 50px;
+}
+.choosen-numbers span {
+  color: yellow;
+}
+
+.pop-up {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 300px;
+  min-width: 300px;
+  background: rgba(87, 107, 199, 0.96);
+  text-align: center;
+  line-height: 200px;
+  color: yellow;
+  z-index: 2;
 }
