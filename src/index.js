@@ -23,6 +23,7 @@ const addClass = (className, index) => {
   if (typeof index === "undefined") {
     index = 0;
   }
+
   if (comparedBalls.length > index) {
     comparedBalls[index].classList.add(className);
     setTimeout(() => {
@@ -57,6 +58,7 @@ const chooseLuckyNumbers = () => {
   for (let i = 0; i < choosenNumbers; i++) {
     loterryArr.push(rand(1, 49));
   }
+
   const uniqArr = [...new Set(loterryArr)];
   if (loterryArr.length !== uniqArr.length) {
     console.log("Arrays are diffrent. Choosing another");

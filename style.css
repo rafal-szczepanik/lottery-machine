@@ -6,7 +6,6 @@
 }
 .wrapper {
   overflow: hidden;
-
   position: relative;
   top: 0;
   left: 0;
@@ -19,7 +18,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-image: url("img/beads-5874025_1920.jpg");
   background-position: center;
@@ -61,7 +60,6 @@
     rgb(255, 205, 0) 100%
   );
 }
-
 .ball:before {
   content: "";
   position: absolute;
@@ -91,14 +89,9 @@
     rgba(255, 255, 255, 1) 36%,
     rgba(255, 255, 255, 0.2) 4%
   );
-  -webkit-transform: translateX(-10px) translateY(-13px) skewX(-20deg);
-  -moz-transform: translateX(-10px) translateY(-13px) skewX(-20deg);
-  -ms-transform: translateX(-10px) translateY(-13px) skewX(-20deg);
-  -o-transform: translateX(-10px) translateY(-13px) skewX(-20deg);
   transform: translateX(-1px) translateY(-1px) skewX(-20deg);
   filter: blur(2px);
 }
-
 .display-numbers-h1 {
   margin: 0 auto;
   width: 500px;
@@ -108,7 +101,6 @@
   color: rgb(27, 78, 230);
   text-shadow: 2px 2px 2px #ddd;
 }
-
 .choosen-ball {
   background: radial-gradient(
     circle at 50% 120%,
@@ -118,11 +110,9 @@
   );
   color: white;
 }
-
 .btn-cointainer {
   width: 100vw;
 }
-
 .lottery-btn {
   display: block;
   margin: 10px auto;
@@ -137,7 +127,6 @@
 .visible {
   display: none;
 }
-
 .lottery-btn:hover {
   transform: scale(1.05);
 }
