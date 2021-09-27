@@ -14,6 +14,7 @@ const comparedBalls = [];
 let displaydText = "";
 const ballLength = 49;
 const myChoosenNumbers = [];
+let clicked;
 
 const createBalls = () => {
   for (let i = 0; i < ballLength; i++) {
@@ -26,29 +27,37 @@ const createBalls = () => {
 };
 
 const showResult = () => {
-  console.log(myChoosenNumbers);
-  console.log(loterryArr);
-
   const resultArr = myChoosenNumbers.filter((number) =>
     loterryArr.includes(number)
   );
-  console.log(resultArr);
   popUpTxt.innerText = String(resultArr.length);
   popUp.classList.remove("visible");
 };
 
 const chooseOneBall = (ball) => {
   const myNumber = ball.dataset.number;
-  if (myChoosenNumbers.length >= 6) {
-    alert("You have choosen 6 numbers already");
-    return;
-  }
 
   if (myChoosenNumbers.indexOf(myNumber) === -1) {
+    if (myChoosenNumbers.length >= 6) {
+      alert("You have choosen 6 numbers already");
+      return;
+    }
     myChoosenNumbers.push(myNumber);
     ball.classList.add("clicked-ball");
     myNumbers.innerText += ` *${myNumber}*`;
+    clicked = false;
   }
+
+  if (clicked) {
+    ball.classList.remove("clicked-ball");
+    myChoosenNumbers.splice(myChoosenNumbers.indexOf(myNumber), 1);
+    myNumbers.innerText = "";
+    myChoosenNumbers.forEach((number) => {
+      myNumbers.innerText += ` *${String(number)}*`;
+    });
+    clicked = false;
+  }
+  clicked = true;
 };
 
 const chooseYourBalls = () => {
