@@ -7,6 +7,7 @@ const lotteryBtn = document.querySelector(".lottery-btn");
 const choosenNumbers = 6;
 const loterryArr = [];
 const comparedBalls = [];
+let displaydText = "";
 
 const addClass = (className, index) => {
   if (typeof index === "undefined") {
@@ -32,8 +33,14 @@ const compareNumbers = () => {
 };
 
 const display = () => {
-  loterryArr.forEach((number) => (numberText.textContent += `${number}, `));
+  displaydText = "";
+  loterryArr.forEach((number) => (displaydText += `${number}, `));
   lotteryBtn.classList.remove("visible");
+  console.log(displaydText.length);
+  const txtArr = displaydText.split(",");
+  txtArr.pop();
+  displaydText = txtArr.join(",");
+  numberText.textContent = displaydText;
 };
 
 const chooseLuckyNumbers = () => {

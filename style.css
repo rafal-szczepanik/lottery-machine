@@ -12,7 +12,7 @@
   left: 0;
   height: 100vh;
   width: 100vw;
-  background: rgba(136, 136, 122, 0.7);
+  background: rgba(95, 95, 90, 0.7);
 }
 .wrapper::before {
   content: "";
@@ -21,7 +21,7 @@
   left: 0;
   height: 100vh;
   width: 100%;
-  background-image: url("img/balls-6077901_1920.jpg");
+  background-image: url("img/beads-5874025_1920.jpg");
   background-position: center;
   background-size: cover;
   z-index: -1;
@@ -32,7 +32,7 @@
   width: 500px;
   text-align: center;
   font-size: 35px;
-  background: rgba(245, 245, 167, 0.5);
+  background: rgba(245, 245, 167, 0.3);
   border: 1px solid #666;
   color: rgb(27, 78, 230);
   text-shadow: 2px 2px 2px #ddd;
@@ -103,7 +103,7 @@
   margin: 0 auto;
   width: 500px;
   text-align: center;
-  background: rgba(245, 245, 167, 0.5);
+  background: rgba(245, 245, 167, 0.3);
   border: 1px solid #666;
   color: rgb(27, 78, 230);
   text-shadow: 2px 2px 2px #ddd;
@@ -127,7 +127,7 @@
   display: block;
   margin: 10px auto;
   padding: 7px 12px;
-  background-color: royalblue;
+  background-color: blue;
   font-size: 18px;
   color: white;
   border: none;
@@ -139,5 +139,5 @@
 }
 
 .lottery-btn:hover {
-  background-color: blue;
+  transform: scale(1.05);
 }
