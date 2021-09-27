@@ -1,13 +1,23 @@
 import { rand } from "./utils.js";
 
-const balls = document.querySelectorAll(".ball");
 const numberText = document.querySelector(".display-numbers-span");
 const lotteryBtn = document.querySelector(".lottery-btn");
+const ballContainer = document.querySelector(".container");
 
 const choosenNumbers = 6;
 const loterryArr = [];
 const comparedBalls = [];
 let displaydText = "";
+const ballLength = 49;
+
+const createBalls = () => {
+  for (let i = 0; i < ballLength; i++) {
+    const myBall = document.createElement("div");
+    myBall.classList.add("ball");
+    myBall.innerText = `${i + 1}`;
+    ballContainer.appendChild(myBall);
+  }
+};
 
 const addClass = (className, index) => {
   if (typeof index === "undefined") {
@@ -22,9 +32,10 @@ const addClass = (className, index) => {
 };
 
 const compareNumbers = () => {
+  const balls = document.querySelectorAll(".ball");
   balls.forEach((ball) => {
     loterryArr.find((number) => {
-      if (String(number) === ball.textContent) {
+      if (String(number) === ball.innerText) {
         comparedBalls.push(ball);
         addClass("choosen-ball", 0);
       }
@@ -36,7 +47,6 @@ const display = () => {
   displaydText = "";
   loterryArr.forEach((number) => (displaydText += `${number}, `));
   lotteryBtn.classList.remove("visible");
-  console.log(displaydText.length);
   const txtArr = displaydText.split(",");
   txtArr.pop();
   displaydText = txtArr.join(",");
@@ -49,7 +59,7 @@ const chooseLuckyNumbers = () => {
   }
   const uniqArr = [...new Set(loterryArr)];
   if (loterryArr.length !== uniqArr.length) {
-    console.log("Tablice były różne");
+    console.log("Arrays are diffrent. Choosing another");
     loterryArr.length = 0;
     chooseLuckyNumbers();
   }
@@ -61,6 +71,8 @@ const clearData = () => {
   comparedBalls.length = 0;
   loterryArr.length = 0;
 };
+createBalls();
+
 const startLottery = () => {
   lotteryBtn.classList.add("visible");
   if (numberText.innerText !== "") {
