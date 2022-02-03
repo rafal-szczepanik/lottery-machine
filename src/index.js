@@ -1,4 +1,5 @@
 import { rand } from "./utils.js";
+import { Ball } from "./Ball.js";
 
 const numberText = document.querySelector(".display-numbers-span");
 const lotteryBtn = document.querySelector(".lottery-btn");
@@ -15,16 +16,16 @@ let displaydText = "";
 const ballLength = 49;
 const myChoosenNumbers = [];
 let clicked;
+const mainArr = [];
 
-const createBalls = () => {
-  for (let i = 0; i < ballLength; i++) {
-    const myBall = document.createElement("div");
-    myBall.classList.add("ball");
-    myBall.dataset.number = `${i + 1}`;
-    myBall.innerText = `${i + 1}`;
-    ballContainer.appendChild(myBall);
-  }
-};
+const ball = new Ball();
+
+for (let i = 0; i < ballLength; i++) {
+  const myBall = document.createElement("div");
+  const styledBall = ball.createBall(myBall, i);
+  mainArr.push(styledBall);
+}
+mainArr.forEach((ball) => ballContainer.appendChild(ball));
 
 const showResult = () => {
   const resultArr = myChoosenNumbers.filter((number) =>
@@ -32,6 +33,7 @@ const showResult = () => {
   );
   popUpTxt.innerText = String(resultArr.length);
   popUp.classList.remove("visible");
+  console.log(loterryArr);
 };
 
 const chooseOneBall = (ball) => {
@@ -132,7 +134,6 @@ const resetResult = () => {
   lotteryBtn.classList.remove("visible");
 };
 
-createBalls();
 chooseYourBalls();
 
 const startLottery = () => {
